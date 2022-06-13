@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_description">18sp</dimen>
+    <dimen name="text_size_header">20sp</dimen>
+    <dimen name="base_dictionary_layout_margin">8dp</dimen>
+    <dimen name="margin_search_text_input_layout">6dp</dimen>
+    <dimen name="margin_words_list_recycler_view">6dp</dimen>
+    <dimen name="margin_top_item_recycler_view">15dp</dimen>
+    <dimen name="margin_start_header_recycler_item_textview">15dp</dimen>
+    <dimen name="layout_size_avatar_item_word_list_card_view">56dp</dimen>
+    <dimen name="layout_margin_avatar_item_word_list_card_view">6dp</dimen>
+    <dimen name="corner_radius_avatar_item_word_list_card_view">6dp</dimen>
+    <dimen name="card_elevation_avatar_item_word_list_card_view">16dp</dimen>
+    <dimen name="layout_height_delimiter">1px</dimen>
+    <dimen name="margint_top_delimiter">10dp</dimen>
+</resources>
