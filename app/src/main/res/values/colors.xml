@@ -18,4 +18,12 @@
     <color name="color_black">#313131</color>
     <color name="color_white">#FFFFFF</color>
     <color name="color_gray">#66000000</color>
+
+    <color name="progress_bar_indicator">#AA00C1FF</color>
+    <color name="progress_bar_track">#6600C1FF</color>
+    <color name="background_search_progress">#AA6FE4FF</color>
+
+    <color name="additional_color_item_list">#AA6FE4FF</color>
+
+
 </resources>
