@@ -14,19 +14,19 @@ import ru.omysin.gbdictionary.model.repousecase.RepositoryUsecaseImpl
 import ru.omysin.gbdictionary.ui.DictionaryViewModel
 
 val appModule = module {
-    viewModel { DictionaryViewModel(get()) }
+    viewModel(qualifier = named("")) { DictionaryViewModel(get()) }
 
-    single<RepositoryUsecase> { RepositoryUsecaseImpl(get()) }
+    single<RepositoryUsecase>(qualifier = named("repo_api_usecase")) { RepositoryUsecaseImpl(get()) }
 
-    single<WordRepo> { RetrofitWordsRepoImpl(get()) }
-    single<SkyEngApi> { get<Retrofit>().create(SkyEngApi::class.java) }
+    single<WordRepo>(qualifier = named("repo_api")) { RetrofitWordsRepoImpl(get()) }
+    single<SkyEngApi>(qualifier = named("sky_eng_api")) { get<Retrofit>().create(SkyEngApi::class.java) }
     single {
         Retrofit.Builder()
-            .baseUrl(get<String>(named("api_url")))
+            .baseUrl(get<String>(qualifier = named("api_url")))
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
     }
 
-    single(named("api_url")) { "https://dictionary.skyeng.ru/api/public/v1/" }
+    single(qualifier = named("api_url")) { "https://dictionary.skyeng.ru/api/public/v1/" }
 }
