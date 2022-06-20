@@ -6,16 +6,16 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
 import ru.omysin.gbdictionary.databinding.DictionaryMainBinding
-
 
 class DictionaryActivity : AppCompatActivity() {
 
     private lateinit var binding: DictionaryMainBinding
     private val viewModel: DictionaryViewModel by viewModel()
-
-    private val adapter = DictionaryAdapter()
+    private val adapter: DictionaryAdapter by inject(named("dictionary_adapter_rv"))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +57,5 @@ class DictionaryActivity : AppCompatActivity() {
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0)
     }
-
 
 }
