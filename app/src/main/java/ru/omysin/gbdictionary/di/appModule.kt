@@ -14,16 +14,10 @@ import ru.omysin.gbdictionary.ui.DictionaryAdapter
 import ru.omysin.gbdictionary.ui.DictionaryViewModel
 
 val appModule = module {
-    viewModel { DictionaryViewModel(get((named("repo_api_usecase")))) }
+    viewModel { DictionaryViewModel(get((named("repo_usecase")))) }
 
-    single<RepositoryUsecase>(qualifier = named("repo_api_usecase")) {
-        RepositoryUsecaseImpl(
-            get(
-                (named(
-                    "repo_api"
-                ))
-            )
-        )
+    single<RepositoryUsecase>(qualifier = named("repo_usecase")) {
+        RepositoryUsecaseImpl(get((named("repo_api"))))
     }
 
     single<WordRepo>(qualifier = named("repo_api")) { RetrofitWordsRepoImpl(get((named("sky_eng_api")))) }
@@ -37,5 +31,5 @@ val appModule = module {
 
     single(qualifier = named("api_url")) { "https://dictionary.skyeng.ru/api/public/v1/" }
 
-    single<DictionaryAdapter>(qualifier = named("dictionary_adapter_rv")) { DictionaryAdapter() }
+    single(qualifier = named("dictionary_adapter_rv")) { DictionaryAdapter() }
 }
