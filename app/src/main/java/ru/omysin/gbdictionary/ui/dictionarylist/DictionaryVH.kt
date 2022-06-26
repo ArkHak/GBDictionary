@@ -1,4 +1,4 @@
-package ru.omysin.gbdictionary.ui
+package ru.omysin.gbdictionary.ui.dictionarylist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

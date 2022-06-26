@@ -1,4 +1,4 @@
-package ru.omysin.gbdictionary.ui
+package ru.omysin.gbdictionary.ui.dictionarylist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

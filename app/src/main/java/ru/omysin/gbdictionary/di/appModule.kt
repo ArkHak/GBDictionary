@@ -10,8 +10,8 @@ import ru.omysin.gbdictionary.domain.WordRepo
 import ru.omysin.gbdictionary.model.datasource.remote.RetrofitWordsRepoImpl
 import ru.omysin.gbdictionary.model.datasource.remote.SkyEngApi
 import ru.omysin.gbdictionary.model.repousecase.RepositoryUsecaseImpl
-import ru.omysin.gbdictionary.ui.DictionaryAdapter
-import ru.omysin.gbdictionary.ui.DictionaryViewModel
+import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryAdapter
+import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryViewModel
 
 val appModule = module {
     viewModel { DictionaryViewModel(get((named("repo_usecase")))) }

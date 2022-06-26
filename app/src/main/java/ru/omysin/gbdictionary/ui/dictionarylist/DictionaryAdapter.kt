@@ -1,4 +1,4 @@
-package ru.omysin.gbdictionary.ui
+package ru.omysin.gbdictionary.ui.dictionarylist
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
