@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
@@ -33,6 +34,17 @@ class DictionaryListFragment : Fragment() {
         binding.wordsListRecyclerView.adapter = adapter
         initView()
         initViewModelEvents()
+        initAction()
+    }
+
+    private fun initAction() {
+        adapter.listenerClick = DictionaryAdapter.OnWordClickListener { word ->
+            findNavController().navigate(
+                DictionaryListFragmentDirections.actionDictionaryListFragmentToDictionaryWordDetailFragment(
+                    word
+                )
+            )
+        }
     }
 
     private fun initView() {

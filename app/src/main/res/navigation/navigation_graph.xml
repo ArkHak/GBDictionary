@@ -9,5 +9,26 @@
         android:id="@+id/dictionaryListFragment"
         android:name="ru.omysin.gbdictionary.ui.dictionarylist.DictionaryListFragment"
         android:label="DictionaryListFragment"
-        tools:layout="@layout/dictionary_list_fragment" />
+        tools:layout="@layout/dictionary_list_fragment">
+        <action
+            android:id="@+id/action_dictionaryListFragment_to_dictionaryWordDetailFragment"
+            app:destination="@id/dictionaryWordDetailFragment">
+            <argument
+                android:name="word"
+                app:argType="ru.omysin.gbdictionary.domain.entitys.WordEntity"
+                app:nullable="false" />
+        </action>
+
+    </fragment>
+
+
+    <dialog
+        android:id="@+id/dictionaryWordDetailFragment"
+        android:name="ru.omysin.gbdictionary.ui.dictionaryworddetail.DictionaryWordDetailFragment"
+        android:label="DictionaryWordDetailFragment">
+        <argument
+            android:name="word"
+            app:argType="ru.omysin.gbdictionary.domain.entitys.WordEntity" />
+    </dialog>
+
 </navigation>
