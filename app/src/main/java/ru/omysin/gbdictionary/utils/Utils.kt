@@ -9,3 +9,4 @@ fun View.hideKeyboard(): Boolean {
         context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     return inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
 }
+

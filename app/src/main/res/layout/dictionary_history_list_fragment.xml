@@ -3,19 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin_search_text_input_layout">
+
+    <TextView
+        android:id="@+id/titleHistoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_history"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_text_input_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_search_text_input_layout"
         app:endIconDrawable="@drawable/ic_search"
         app:endIconMode="custom"
-        app:layout_constraintEnd_toStartOf="@id/historyImageView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/titleHistoryTextView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search_text_input_edit_text"
@@ -25,18 +36,6 @@
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/historyImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:contentDescription="@string/historyimageview"
-        android:src="@drawable/ic_history"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/search_text_input_layout"
-        app:layout_constraintTop_toTopOf="@id/search_text_input_layout"
-        android:focusable="true" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/words_list_recycler_view"

@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
-import coil.api.load
+import coil.ImageLoader
+import coil.request.LoadRequest
+import ru.omysin.gbdictionary.R
 import ru.omysin.gbdictionary.databinding.DictionaryWordDetailFragmentBinding
 
 class DictionaryWordDetailFragment : DialogFragment() {
@@ -29,7 +32,28 @@ class DictionaryWordDetailFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.titleWordTextView.text = word.text
         binding.meaningWord.text = word.meanings?.get(0)?.translation?.text
-        binding.posterWordImageView.load("https:${word.meanings?.get(0)?.imageUrl}")
+        useLoadImage(binding.posterWordImageView, word.meanings?.get(0)?.imageUrl!!)
+    }
+
+    private fun useLoadImage(
+        imageView: ImageView,
+        imageLink: String,
+    ) {
+        val request = LoadRequest.Builder(requireContext())
+            .data("https:$imageLink")
+            .target(
+                onStart = {
+                    imageView.setImageResource(R.drawable.loading)
+                },
+                onSuccess = { result ->
+                    imageView.setImageDrawable(result)
+                },
+                onError = {
+                    imageView.setImageResource(R.drawable.img_item_word_default)
+                }
+            )
+            .build()
+        ImageLoader(requireContext()).execute(request)
     }
 
     override fun onDestroy() {

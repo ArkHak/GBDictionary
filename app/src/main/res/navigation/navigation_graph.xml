@@ -18,14 +18,22 @@
                 app:argType="ru.omysin.gbdictionary.domain.entitys.WordEntity"
                 app:nullable="false" />
         </action>
-
+        <action
+            android:id="@+id/action_dictionaryListFragment_to_DictionaryHistoryListFragment"
+            app:destination="@id/dictionaryHistoryListFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/dictionaryHistoryListFragment"
+        android:name="ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListFragment"
+        android:label="DictionaryHistoryListFragment"
+        tools:layout="@layout/dictionary_history_list_fragment" />
 
     <dialog
         android:id="@+id/dictionaryWordDetailFragment"
         android:name="ru.omysin.gbdictionary.ui.dictionaryworddetail.DictionaryWordDetailFragment"
-        android:label="DictionaryWordDetailFragment">
+        android:label="DictionaryWordDetailFragment"
+        tools:layout="@layout/dictionary_word_detail_fragment">
         <argument
             android:name="word"
             app:argType="ru.omysin.gbdictionary.domain.entitys.WordEntity" />

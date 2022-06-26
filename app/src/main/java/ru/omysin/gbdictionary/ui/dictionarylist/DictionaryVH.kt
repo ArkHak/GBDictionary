@@ -3,8 +3,7 @@ package ru.omysin.gbdictionary.ui.dictionarylist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
-import ru.omysin.gbdictionary.R
+import coil.api.load
 import ru.omysin.gbdictionary.databinding.ItemWordsListBinding
 import ru.omysin.gbdictionary.domain.entitys.WordEntity
 
@@ -21,9 +20,6 @@ class DictionaryVH(private val binding: ItemWordsListBinding) :
         binding.headerRecyclerItemTextview.text = item.text
         binding.descriptionRecyclerItemTextview.text =
             item.meanings?.get(0)?.translation?.text
-        Picasso.get()
-            .load("https:${item.meanings?.get(0)?.imageUrl}")
-            .error(R.drawable.img_item_word_default)
-            .into(binding.avatarItemWordListImageView)
+        binding.avatarItemWordListImageView.load("https:${item.meanings?.get(0)?.imageUrl}")
     }
 }

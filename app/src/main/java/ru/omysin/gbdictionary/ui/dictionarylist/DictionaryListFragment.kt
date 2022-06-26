@@ -53,6 +53,11 @@ class DictionaryListFragment : Fragment() {
             val searchWord = binding.searchTextInputEditText.text.toString()
             viewModel.updateWordsListRepo(searchWord)
         }
+        binding.historyImageView.setOnClickListener {
+            findNavController().navigate(
+                DictionaryListFragmentDirections.actionDictionaryListFragmentToDictionaryHistoryListFragment()
+            )
+        }
     }
 
     private fun initViewModelEvents() {
