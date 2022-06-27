@@ -42,6 +42,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":utils"))
+    implementation(project(":domain"))
+
     //AndroidX
     implementation ("androidx.appcompat:appcompat:1.4.2")
 

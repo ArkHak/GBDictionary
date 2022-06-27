@@ -2,7 +2,7 @@ package ru.omysin.gbdictionary.ui.dictionaryhistorilist
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryEntity
+import ru.omysin.domain.entitys.DHistoryEntity
 
 class DictionaryHistoryAdapter : RecyclerView.Adapter<DictionaryHistoryListVH>() {
     private var data: List<DHistoryEntity> = emptyList()

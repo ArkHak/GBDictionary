@@ -2,7 +2,7 @@ package ru.omysin.gbdictionary.ui.dictionarylist
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.omysin.gbdictionary.domain.entitys.WordEntity
+import ru.omysin.domain.entitys.WordEntity
 
 class DictionaryAdapter : RecyclerView.Adapter<DictionaryVH>() {
     private var data: List<WordEntity> = emptyList()

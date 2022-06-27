@@ -12,8 +12,8 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 import ru.omysin.gbdictionary.databinding.DictionaryHistoryListFragmentBinding
-import ru.omysin.gbdictionary.utils.converterDHistoryEntityToDialogWordEntity
-import ru.omysin.gbdictionary.utils.hideKeyboard
+import ru.omysin.utils.converterDHistoryEntityToDialogWordEntity
+import ru.omysin.utils.hideKeyboard
 
 class DictionaryHistoryListFragment : Fragment() {
     private var _binding: DictionaryHistoryListFragmentBinding? = null

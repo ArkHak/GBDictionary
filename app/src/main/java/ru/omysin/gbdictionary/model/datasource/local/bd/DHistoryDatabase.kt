@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
+import ru.omysin.domain.entitys.DHistoryEntity
 
 @Database(entities = [DHistoryEntity::class], version = 1, exportSchema = true)
 abstract class DHistoryDatabase() : RoomDatabase() {

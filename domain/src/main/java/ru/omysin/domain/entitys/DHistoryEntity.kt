@@ -1,4 +1,4 @@
-package ru.omysin.gbdictionary.model.datasource.local.bd
+package ru.omysin.domain.entitys
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

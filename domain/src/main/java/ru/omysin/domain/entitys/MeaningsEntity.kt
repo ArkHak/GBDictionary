@@ -1,4 +1,4 @@
-package ru.omysin.gbdictionary.domain.entitys
+package ru.omysin.domain.entitys
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

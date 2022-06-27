@@ -1,6 +1,6 @@
-package ru.omysin.gbdictionary.domain
+package ru.omysin.domain
 
-import ru.omysin.gbdictionary.domain.entitys.WordEntity
+import ru.omysin.domain.entitys.WordEntity
 
 interface WordRepo {
     // (R)
