@@ -11,6 +11,9 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 import ru.omysin.gbdictionary.databinding.DictionaryListFragmentBinding
+import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListViewModel
+import ru.omysin.gbdictionary.utils.converterWordEntityToDHistoryEntity
+import ru.omysin.gbdictionary.utils.converterWordEntityToDialogWordEntity
 import ru.omysin.gbdictionary.utils.hideKeyboard
 
 class DictionaryListFragment : Fragment() {
@@ -18,6 +21,7 @@ class DictionaryListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: DictionaryViewModel by viewModel()
+    private val viewModelBD: DictionaryHistoryListViewModel by viewModel()
     private val adapter: DictionaryAdapter by inject(named("dictionary_adapter_rv"))
 
     override fun onCreateView(
@@ -31,23 +35,13 @@ class DictionaryListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.wordsListRecyclerView.adapter = adapter
         initView()
         initViewModelEvents()
         initAction()
     }
 
-    private fun initAction() {
-        adapter.listenerClick = DictionaryAdapter.OnWordClickListener { word ->
-            findNavController().navigate(
-                DictionaryListFragmentDirections.actionDictionaryListFragmentToDictionaryWordDetailFragment(
-                    word
-                )
-            )
-        }
-    }
-
     private fun initView() {
+        binding.wordsListRecyclerView.adapter = adapter
         binding.searchTextInputLayout.setEndIconOnClickListener {
             view?.hideKeyboard()
             val searchWord = binding.searchTextInputEditText.text.toString()
@@ -56,6 +50,17 @@ class DictionaryListFragment : Fragment() {
         binding.historyImageView.setOnClickListener {
             findNavController().navigate(
                 DictionaryListFragmentDirections.actionDictionaryListFragmentToDictionaryHistoryListFragment()
+            )
+        }
+    }
+
+    private fun initAction() {
+        adapter.listenerClick = DictionaryAdapter.OnWordClickListener { word ->
+            viewModelBD.saveToBD(converterWordEntityToDHistoryEntity(word))
+            findNavController().navigate(
+                DictionaryListFragmentDirections.actionDictionaryListFragmentToDictionaryWordDetailFragment(
+                    converterWordEntityToDialogWordEntity(word)
+                )
             )
         }
     }

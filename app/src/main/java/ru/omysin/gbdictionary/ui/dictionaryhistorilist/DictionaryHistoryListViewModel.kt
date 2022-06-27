@@ -1,33 +1,36 @@
-package ru.omysin.gbdictionary.ui.dictionarylist
+package ru.omysin.gbdictionary.ui.dictionaryhistorilist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
-import ru.omysin.gbdictionary.domain.RepositoryUsecase
-import ru.omysin.gbdictionary.domain.entitys.WordEntity
 import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryEntity
 import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryRepo
 
-class DictionaryViewModel(
-    private val repositoryUsecase: RepositoryUsecase,
-) : ViewModel() {
+class DictionaryHistoryListViewModel(private val dHistoryRepo: DHistoryRepo) : ViewModel() {
 
     private val viewModelCoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
     private var jobVM: Job? = null
 
-    private val _wordsList = MutableLiveData<List<WordEntity>>()
-    val wordsList: LiveData<List<WordEntity>> = _wordsList
+    private val _wordsHistoryList = MutableLiveData<List<DHistoryEntity>>()
+    val wordsHistoryList: LiveData<List<DHistoryEntity>> = _wordsHistoryList
 
     private val _inProgress = MutableLiveData<Boolean>()
     val inProgress: LiveData<Boolean> = _inProgress
 
-    fun updateWordsListRepo(word: String) {
+    fun allWordsHistoryListRepo() {
         jobVM?.cancelChildren()
         jobVM = viewModelCoroutineScope.launch {
             _inProgress.postValue(true)
-            _wordsList.postValue(repositoryUsecase.observeWordsList(word))
+            _wordsHistoryList.postValue(dHistoryRepo.getData())
             _inProgress.postValue(false)
+        }
+    }
+
+    fun saveToBD(wordSave: DHistoryEntity) {
+        jobVM?.cancelChildren()
+        jobVM = viewModelCoroutineScope.launch {
+            dHistoryRepo.saveToBD(wordSave)
         }
     }
 
@@ -35,4 +38,5 @@ class DictionaryViewModel(
         viewModelCoroutineScope.cancel()
         super.onCleared()
     }
+
 }

@@ -30,9 +30,9 @@ class DictionaryWordDetailFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.titleWordTextView.text = word.text
-        binding.meaningWord.text = word.meanings?.get(0)?.translation?.text
-        useLoadImage(binding.posterWordImageView, word.meanings?.get(0)?.imageUrl!!)
+        binding.titleWordTextView.text = word.title
+        binding.meaningWord.text = word.translation
+        useLoadImage(binding.posterWordImageView, word.urlImage)
     }
 
     private fun useLoadImage(

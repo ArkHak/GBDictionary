@@ -15,7 +15,7 @@
             app:destination="@id/dictionaryWordDetailFragment">
             <argument
                 android:name="word"
-                app:argType="ru.omysin.gbdictionary.domain.entitys.WordEntity"
+                app:argType="ru.omysin.gbdictionary.domain.entitys.DialogWordEntity"
                 app:nullable="false" />
         </action>
         <action
@@ -27,7 +27,16 @@
         android:id="@+id/dictionaryHistoryListFragment"
         android:name="ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListFragment"
         android:label="DictionaryHistoryListFragment"
-        tools:layout="@layout/dictionary_history_list_fragment" />
+        tools:layout="@layout/dictionary_history_list_fragment">
+        <action
+            android:id="@+id/action_dictionaryHistoryListFragment_to_dictionaryWordDetailFragment"
+            app:destination="@id/dictionaryWordDetailFragment">
+            <argument
+                android:name="word"
+                app:argType="ru.omysin.gbdictionary.domain.entitys.DialogWordEntity"
+                app:nullable="false" />
+        </action>
+    </fragment>
 
     <dialog
         android:id="@+id/dictionaryWordDetailFragment"
@@ -36,7 +45,7 @@
         tools:layout="@layout/dictionary_word_detail_fragment">
         <argument
             android:name="word"
-            app:argType="ru.omysin.gbdictionary.domain.entitys.WordEntity" />
+            app:argType="ru.omysin.gbdictionary.domain.entitys.DialogWordEntity" />
     </dialog>
 
 </navigation>

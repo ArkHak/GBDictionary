@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/search_text_input_layout"
+        android:id="@+id/search_history_text_input_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/titleHistoryTextView">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/search_text_input_edit_text"
+            android:id="@+id/search_history_text_input_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_search_text_input_edit_text"
@@ -38,7 +38,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/words_list_recycler_view"
+        android:id="@+id/words_history_list_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/margin_words_list_recycler_view"
@@ -47,12 +47,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_text_input_layout"
+        app:layout_constraintTop_toBottomOf="@id/search_history_text_input_layout"
         app:useCompatPadding="true"
         tools:listitem="@layout/item_words_list" />
 
     <FrameLayout
-        android:id="@+id/progress_bar_frame_layout"
+        android:id="@+id/progress_history_bar_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_search_progress"

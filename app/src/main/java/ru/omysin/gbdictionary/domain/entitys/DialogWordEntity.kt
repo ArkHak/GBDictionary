@@ -4,7 +4,8 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class WordEntity(
-    val text: String,
-    val meanings: List<MeaningsEntity>?
+data class DialogWordEntity(
+    val title: String,
+    val translation: String,
+    val urlImage: String
 ) : Parcelable
