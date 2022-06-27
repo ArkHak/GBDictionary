@@ -2,7 +2,7 @@
 <resources>
     <dimen name="text_size_description">18sp</dimen>
     <dimen name="text_size_header">20sp</dimen>
-    <dimen name="base_dictionary_layout_margin">8dp</dimen>
+    <dimen name="base_dictionary_layout_padding">6dp</dimen>
     <dimen name="margin_search_text_input_layout">6dp</dimen>
     <dimen name="margin_words_list_recycler_view">6dp</dimen>
     <dimen name="margin_top_item_recycler_view">15dp</dimen>

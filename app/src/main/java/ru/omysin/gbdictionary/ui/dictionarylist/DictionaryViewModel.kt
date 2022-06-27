@@ -1,4 +1,4 @@
-package ru.omysin.gbdictionary.ui
+package ru.omysin.gbdictionary.ui.dictionarylist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import ru.omysin.gbdictionary.domain.RepositoryUsecase
 import ru.omysin.gbdictionary.domain.entitys.WordEntity
 
 class DictionaryViewModel(
-    private val repositoryUsecase: RepositoryUsecase
+    private val repositoryUsecase: RepositoryUsecase,
 ) : ViewModel() {
 
     private val viewModelCoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
