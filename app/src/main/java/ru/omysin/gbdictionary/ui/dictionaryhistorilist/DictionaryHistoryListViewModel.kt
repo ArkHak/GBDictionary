@@ -18,6 +18,9 @@ class DictionaryHistoryListViewModel(private val dHistoryRepo: DHistoryRepo) : V
     private val _inProgress = MutableLiveData<Boolean>()
     val inProgress: LiveData<Boolean> = _inProgress
 
+    private val _searchWordInBD = MutableLiveData<DHistoryEntity>()
+    val searchWordInBD: LiveData<DHistoryEntity> = _searchWordInBD
+
     fun allWordsHistoryListRepo() {
         jobVM?.cancelChildren()
         jobVM = viewModelCoroutineScope.launch {
@@ -31,6 +34,13 @@ class DictionaryHistoryListViewModel(private val dHistoryRepo: DHistoryRepo) : V
         jobVM?.cancelChildren()
         jobVM = viewModelCoroutineScope.launch {
             dHistoryRepo.saveToBD(wordSave)
+        }
+    }
+
+    fun searchWordToBD(word: String) {
+        jobVM?.cancelChildren()
+        jobVM = viewModelCoroutineScope.launch {
+            _searchWordInBD.postValue(dHistoryRepo.getDataByWord(word))
         }
     }
 

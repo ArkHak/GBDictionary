@@ -19,7 +19,7 @@ import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryAdapter
 import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryViewModel
 
 val appModule = module {
-    viewModel { DictionaryViewModel(get((named("repo_usecase"))))}
+    viewModel { DictionaryViewModel(get((named("repo_usecase")))) }
     viewModel { DictionaryHistoryListViewModel(get((named("repo_history_bd")))) }
 
     single<RepositoryUsecase>(qualifier = named("repo_usecase")) {

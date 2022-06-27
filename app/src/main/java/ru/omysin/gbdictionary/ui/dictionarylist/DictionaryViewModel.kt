@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
 import ru.omysin.gbdictionary.domain.RepositoryUsecase
 import ru.omysin.gbdictionary.domain.entitys.WordEntity
-import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryEntity
-import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryRepo
 
 class DictionaryViewModel(
     private val repositoryUsecase: RepositoryUsecase,
