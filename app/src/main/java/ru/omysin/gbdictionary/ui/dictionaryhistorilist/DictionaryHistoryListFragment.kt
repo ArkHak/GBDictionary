@@ -9,8 +9,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
+import org.koin.ext.getFullName
+import org.koin.java.KoinJavaComponent
 import ru.omysin.gbdictionary.databinding.DictionaryHistoryListFragmentBinding
 import ru.omysin.utils.converterDHistoryEntityToDialogWordEntity
 import ru.omysin.utils.hideKeyboard
@@ -19,7 +20,11 @@ class DictionaryHistoryListFragment : Fragment() {
     private var _binding: DictionaryHistoryListFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: DictionaryHistoryListViewModel by viewModel()
+    private val dictionaryHistoryListFragmentScope = KoinJavaComponent.getKoin().createScope(
+        DictionaryHistoryListFragment::class.getFullName(),
+        named<DictionaryHistoryListFragment>()
+    )
+    private val viewModel: DictionaryHistoryListViewModel by dictionaryHistoryListFragmentScope.inject()
     private val adapter: DictionaryHistoryAdapter by inject(named("history_dictionary_adapter_rv"))
 
     override fun onCreateView(
