@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId = "ru.omysin.gbdictionary"
         minSdk = 21
-        targetSdk = 32
+        targetSdk = 31
         versionCode = 1
         versionName = "1.0"
     }

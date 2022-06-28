@@ -14,7 +14,6 @@ import ru.omysin.gbdictionary.model.datasource.remote.RetrofitWordsRepoImpl
 import ru.omysin.gbdictionary.model.datasource.remote.SkyEngApi
 import ru.omysin.gbdictionary.model.repousecase.RepositoryUsecaseImpl
 import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryAdapter
-import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListFragment
 import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListViewModel
 import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryAdapter
 import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryListFragment
@@ -27,9 +26,7 @@ val appModule = module {
         viewModel { DictionaryHistoryListViewModel(get((named("repo_history_bd")))) }
     }
 
-    scope(named<DictionaryHistoryListFragment>()) {
-        viewModel { DictionaryHistoryListViewModel(get((named("repo_history_bd")))) }
-    }
+    viewModel { DictionaryHistoryListViewModel(get((named("repo_history_bd")))) }
 
     single<RepositoryUsecase>(qualifier = named("repo_usecase")) {
         RepositoryUsecaseImpl(get((named("repo_api"))))
