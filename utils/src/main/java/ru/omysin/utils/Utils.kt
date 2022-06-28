@@ -1,11 +1,11 @@
-package ru.omysin.gbdictionary.utils
+package ru.omysin.utils
 
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import ru.omysin.gbdictionary.domain.entitys.DialogWordEntity
-import ru.omysin.gbdictionary.domain.entitys.WordEntity
-import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryEntity
+import ru.omysin.domain.entitys.DHistoryEntity
+import ru.omysin.domain.entitys.DialogWordEntity
+import ru.omysin.domain.entitys.WordEntity
 
 fun View.hideKeyboard(): Boolean {
     val inputMethodManager =
@@ -25,7 +25,7 @@ fun converterWordEntityToDialogWordEntity(word: WordEntity): DialogWordEntity {
     return DialogWordEntity(
         title = word.text,
         translation = word.meanings?.get(0)?.translation?.text!!,
-        urlImage = word.meanings[0].imageUrl!!
+        urlImage = word.meanings!![0].imageUrl!!
     )
 }
 

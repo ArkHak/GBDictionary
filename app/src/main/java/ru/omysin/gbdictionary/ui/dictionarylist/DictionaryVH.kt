@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
+import ru.omysin.domain.entitys.WordEntity
 import ru.omysin.gbdictionary.databinding.ItemWordsListBinding
-import ru.omysin.gbdictionary.domain.entitys.WordEntity
 
 class DictionaryVH(private val binding: ItemWordsListBinding) :
     RecyclerView.ViewHolder(binding.root) {

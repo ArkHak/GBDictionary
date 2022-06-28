@@ -6,8 +6,8 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.omysin.gbdictionary.domain.RepositoryUsecase
-import ru.omysin.gbdictionary.domain.WordRepo
+import ru.omysin.domain.RepositoryUsecase
+import ru.omysin.domain.WordRepo
 import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryDatabase
 import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryRepo
 import ru.omysin.gbdictionary.model.datasource.remote.RetrofitWordsRepoImpl

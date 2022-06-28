@@ -1,6 +1,7 @@
 package ru.omysin.gbdictionary.model.datasource.local.bd
 
 import androidx.annotation.WorkerThread
+import ru.omysin.domain.entitys.DHistoryEntity
 
 class DHistoryRepo(private val dHistoryDao: DHistoryDao) {
 

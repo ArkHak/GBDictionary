@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
-import ru.omysin.gbdictionary.domain.RepositoryUsecase
-import ru.omysin.gbdictionary.domain.entitys.WordEntity
+import ru.omysin.domain.RepositoryUsecase
+import ru.omysin.domain.entitys.WordEntity
 
 class DictionaryViewModel(
     private val repositoryUsecase: RepositoryUsecase,

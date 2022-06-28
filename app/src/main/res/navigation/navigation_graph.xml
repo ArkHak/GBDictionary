@@ -15,7 +15,7 @@
             app:destination="@id/dictionaryWordDetailFragment">
             <argument
                 android:name="word"
-                app:argType="ru.omysin.gbdictionary.domain.entitys.DialogWordEntity"
+                app:argType="ru.omysin.domain.entitys.DialogWordEntity"
                 app:nullable="false" />
         </action>
         <action
@@ -33,7 +33,7 @@
             app:destination="@id/dictionaryWordDetailFragment">
             <argument
                 android:name="word"
-                app:argType="ru.omysin.gbdictionary.domain.entitys.DialogWordEntity"
+                app:argType="ru.omysin.domain.entitys.DialogWordEntity"
                 app:nullable="false" />
         </action>
     </fragment>
@@ -45,7 +45,7 @@
         tools:layout="@layout/dictionary_word_detail_fragment">
         <argument
             android:name="word"
-            app:argType="ru.omysin.gbdictionary.domain.entitys.DialogWordEntity" />
+            app:argType="ru.omysin.domain.entitys.DialogWordEntity" />
     </dialog>
 
 </navigation>

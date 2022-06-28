@@ -1,8 +1,8 @@
 package ru.omysin.gbdictionary.model.repousecase
 
-import ru.omysin.gbdictionary.domain.RepositoryUsecase
-import ru.omysin.gbdictionary.domain.WordRepo
-import ru.omysin.gbdictionary.domain.entitys.WordEntity
+import ru.omysin.domain.RepositoryUsecase
+import ru.omysin.domain.WordRepo
+import ru.omysin.domain.entitys.WordEntity
 
 class RepositoryUsecaseImpl(private val wordRepo: WordRepo) :
     RepositoryUsecase {

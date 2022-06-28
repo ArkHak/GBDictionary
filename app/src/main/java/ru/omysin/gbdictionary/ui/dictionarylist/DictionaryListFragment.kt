@@ -12,9 +12,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 import ru.omysin.gbdictionary.databinding.DictionaryListFragmentBinding
 import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListViewModel
-import ru.omysin.gbdictionary.utils.converterWordEntityToDHistoryEntity
-import ru.omysin.gbdictionary.utils.converterWordEntityToDialogWordEntity
-import ru.omysin.gbdictionary.utils.hideKeyboard
+import ru.omysin.utils.converterWordEntityToDHistoryEntity
+import ru.omysin.utils.converterWordEntityToDialogWordEntity
+import ru.omysin.utils.hideKeyboard
 
 class DictionaryListFragment : Fragment() {
     private var _binding: DictionaryListFragmentBinding? = null

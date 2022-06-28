@@ -2,7 +2,7 @@ package ru.omysin.gbdictionary.model.datasource.remote
 
 import retrofit2.http.GET
 import retrofit2.http.Query
-import ru.omysin.gbdictionary.domain.entitys.WordEntity
+import ru.omysin.domain.entitys.WordEntity
 
 interface SkyEngApi {
 

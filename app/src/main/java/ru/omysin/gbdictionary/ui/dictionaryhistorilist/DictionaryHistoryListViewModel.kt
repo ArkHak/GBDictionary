@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
-import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryEntity
+import ru.omysin.domain.entitys.DHistoryEntity
 import ru.omysin.gbdictionary.model.datasource.local.bd.DHistoryRepo
 
 class DictionaryHistoryListViewModel(private val dHistoryRepo: DHistoryRepo) : ViewModel() {
