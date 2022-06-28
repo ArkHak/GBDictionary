@@ -13,7 +13,7 @@
         android:layout_margin="@dimen/margin_search_text_input_layout"
         app:endIconDrawable="@drawable/ic_search"
         app:endIconMode="custom"
-        app:layout_constraintEnd_toStartOf="@id/historyImageView"
+        app:layout_constraintEnd_toStartOf="@id/history_image_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -27,7 +27,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
-        android:id="@+id/historyImageView"
+        android:id="@+id/history_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

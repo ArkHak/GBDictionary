@@ -4,25 +4,36 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
+import org.koin.ext.getFullName
+import org.koin.java.KoinJavaComponent.getKoin
+import ru.omysin.gbdictionary.R
 import ru.omysin.gbdictionary.databinding.DictionaryListFragmentBinding
 import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListViewModel
 import ru.omysin.utils.converterWordEntityToDHistoryEntity
 import ru.omysin.utils.converterWordEntityToDialogWordEntity
 import ru.omysin.utils.hideKeyboard
+import ru.omysin.utils.viewById
 
 class DictionaryListFragment : Fragment() {
     private var _binding: DictionaryListFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: DictionaryViewModel by viewModel()
-    private val viewModelBD: DictionaryHistoryListViewModel by viewModel()
+    private val dictionaryListFragmentScope = getKoin().createScope(
+        DictionaryListFragment::class.getFullName(),
+        named<DictionaryListFragment>()
+    )
+    private val viewModel: DictionaryViewModel by dictionaryListFragmentScope.inject()
+    private val viewModelBD: DictionaryHistoryListViewModel by dictionaryListFragmentScope.inject()
     private val adapter: DictionaryAdapter by inject(named("dictionary_adapter_rv"))
+
+    private val historyButton by viewById<ImageView>(R.id.history_image_view)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +58,7 @@ class DictionaryListFragment : Fragment() {
             val searchWord = binding.searchTextInputEditText.text.toString()
             viewModel.updateWordsListRepo(searchWord)
         }
-        binding.historyImageView.setOnClickListener {
+        historyButton.setOnClickListener {
             findNavController().navigate(
                 DictionaryListFragmentDirections.actionDictionaryListFragmentToDictionaryHistoryListFragment()
             )

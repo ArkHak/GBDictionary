@@ -16,10 +16,16 @@ import ru.omysin.gbdictionary.model.repousecase.RepositoryUsecaseImpl
 import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryAdapter
 import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListViewModel
 import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryAdapter
+import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryListFragment
 import ru.omysin.gbdictionary.ui.dictionarylist.DictionaryViewModel
 
 val appModule = module {
-    viewModel { DictionaryViewModel(get((named("repo_usecase")))) }
+
+    scope(named<DictionaryListFragment>()) {
+        viewModel { DictionaryViewModel(get((named("repo_usecase")))) }
+        viewModel { DictionaryHistoryListViewModel(get((named("repo_history_bd")))) }
+    }
+
     viewModel { DictionaryHistoryListViewModel(get((named("repo_history_bd")))) }
 
     single<RepositoryUsecase>(qualifier = named("repo_usecase")) {
