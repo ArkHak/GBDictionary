@@ -24,6 +24,7 @@
     <color name="background_search_progress">#AA6FE4FF</color>
 
     <color name="additional_color_item_list">#AA6FE4FF</color>
+    <color name="background_splash_screen">#caf9ff</color>
 
 
 </resources>
