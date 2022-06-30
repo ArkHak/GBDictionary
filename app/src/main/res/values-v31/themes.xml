@@ -1,0 +1,11 @@
+<resources>
+    <!-- SplashScreen -->
+    <style name="Theme.NewSplash" parent="Theme.SplashScreen">
+        <item name="postSplashScreenTheme">@style/Theme.AppTheme</item>
+        <item name="windowSplashScreenBackground">@color/background_splash_screen</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_spl_screen_center</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/background_splash_screen
+        </item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/ic_spl_screen_bottom</item>
+    </style>
+</resources>

@@ -1,10 +1,15 @@
 package ru.omysin.gbdictionary.ui.dictionaryworddetail
 
+import android.content.DialogInterface
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
