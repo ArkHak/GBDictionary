@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.annotation.RequiresApi
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -15,6 +15,7 @@ import org.koin.ext.getFullName
 import org.koin.java.KoinJavaComponent.getKoin
 import ru.omysin.gbdictionary.R
 import ru.omysin.gbdictionary.databinding.DictionaryListFragmentBinding
+import ru.omysin.gbdictionary.test.isValidSearchingWord
 import ru.omysin.gbdictionary.ui.dictionaryhistorilist.DictionaryHistoryListViewModel
 import ru.omysin.utils.converterWordEntityToDHistoryEntity
 import ru.omysin.utils.converterWordEntityToDialogWordEntity
@@ -51,12 +52,21 @@ class DictionaryListFragment : Fragment() {
         initAction()
     }
 
+
     private fun initView() {
         binding.wordsListRecyclerView.adapter = adapter
         binding.searchTextInputLayout.setEndIconOnClickListener {
             view?.hideKeyboard()
             val searchWord = binding.searchTextInputEditText.text.toString()
-            viewModel.updateWordsListRepo(searchWord)
+            if (isValidSearchingWord(searchWord)) {
+                viewModel.updateWordsListRepo(searchWord)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.incorrect_searching_word),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
         historyButton.setOnClickListener {
             findNavController().navigate(

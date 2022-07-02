@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img_item_word_default"
-        android:contentDescription="@string/posterwordimageview" />
+        android:contentDescription="@string/poster_word_image_view" />
 
     <TextView
         android:id="@+id/titleWordTextView"
